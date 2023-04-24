@@ -1,0 +1,110 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+article{
+    width: 800px;
+    background-color:#1cbd34;
+    margin: 50px auto;
+}
+
+/* 맨 위 타이틀 부분 */
+.top-box{
+    text-align: center;
+    padding-top: 50px;
+    /* border: 1px solid red; */
+}
+
+.top-title{
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: -20px;
+    color: #e7adee;
+    
+    text-shadow: 0px 7px 0px black;
+    font-family: 'Righteous', cursive;
+}
+
+.top-text{
+    font-size: 20px;
+    font-family: 'Righteous', cursive;
+}
+
+/* 중간 사진 영역 */
+.middle-box{
+    /* border: 1px solid red; */
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.middle-pic{    
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;  
+    
+}
+
+.main-visual{
+    width: 200px;
+}
+
+.middle-icon{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    background-color: #e7adee;
+    border: 2px solid black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.move-memo{
+    position: absolute;
+    top: 120px;
+    right: -220px;
+    background-color: yellow;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 50%;
+}
+
+.move-memo:hover{
+    text-decoration: underline;
+    border: 3px solid black;
+}
+
+/* 페이지 이동 */
+.move-box{
+    background-color: #e7adee;
+    border: 2px solid black;
+    border-right: 0px;
+    border-left: 0px;
+    text-align: right;
+    height: 50px;
+    line-height: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.move-box p{
+    /* border: 1px solid black; */
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+
+

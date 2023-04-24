@@ -1,0 +1,60 @@
+
+article{
+    width: 800px;
+    background-color:#1cbd34;
+    margin: 50px auto;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.top-visual{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.top-visual img{
+    border-radius: 50%;
+    width: 100px;
+
+}
+
+
+
+/* main 게시글 입력 부분 */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    display: block;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+    display: block;
+    width: 306px;
+    height: 30px;
+}

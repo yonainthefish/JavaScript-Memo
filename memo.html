@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yona's memo</title>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="./CSS/memo.css">
+    <link rel="stylesheet" href="./JavaScript/main.js">
+</head>
+<body>
+    <article>
+        <header>
+            <p class="top-title">What i ate today</p>
+            <div class="top-visual">
+                <img src="./img/mainvisual.jpg" alt="피자먹는여자얼굴">
+            </div>            
+        </header>
+        <main>
+            <section>
+                <input type="text" name="" id="title" />
+                <div id="editor"></div>
+                <textarea name="" id="content" cols="30" rows="10"></textarea>
+                <button onclick="saveNote()">메모</button>
+            </section>
+            <section id="display"></section>
+        </main>
+    </article>
+    
+    
+</body>
+</html>
