@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yona's memo</title>
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/memo.css">
-    <link rel="stylesheet" href="./JavaScript/main.js">
+
 </head>
+
 <body>
     <article>
         <header>
             <p class="top-title">What i ate today</p>
             <div class="top-visual">
                 <img src="./img/mainvisual.jpg" alt="피자먹는여자얼굴">
-            </div>            
+            </div>
         </header>
         <main>
             <section>
@@ -25,10 +26,77 @@
                 <textarea name="" id="content" cols="30" rows="10"></textarea>
                 <button onclick="saveNote()">메모</button>
             </section>
-            <section id="display"></section>
+            <section>
+                <ul id="display"></ul>
+            </section>
         </main>
     </article>
-    
-    
+
+
+
+<script>
+    let allMemo = JSON.parse(localStorage.getItem("allMemo"));
+    allMemo = allMemo ?? [];
+
+
+    let memoCode = 0;
+    render();
+
+    function saveNote() {
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+
+        // allMemo 배열에 메모를 객체 형식으로 추가
+        allMemo.push({ title, content, code: memoCode });
+        // saveNote() 함수가 실행될 때마다 code 숫자가 1씩 증가
+        memoCode++;
+
+        localStorage.setItem("allMemo", JSON.stringify(allMemo));
+        render();
+    }
+
+    function render() {
+        const display = document.getElementById("display");
+        display.innerHTML = "";
+
+        for (const item of allMemo) {
+            // memo에 필요한 요소를 담을 li
+            const memo = document.createElement('li');
+
+            // 요소 추가
+            const memoCode = document.createElement("span");
+            const saveTitle = document.createElement("h2");
+            const saveContent = document.createElement("p");
+            const deleteMemoBtn = document.createElement("button");
+
+            // 요소 제목, 내용, 코드 추가
+            memoCode.textContent = item.code;
+            saveTitle.textContent = item.title;
+            saveContent.innerHTML = item.content;
+            deleteMemoBtn.textContent = "삭제";
+
+            // li에 요소 추가
+            memo.appendChild(memoCode);
+            memo.appendChild(saveTitle);
+            memo.appendChild(saveContent);
+            memo.appendChild(deleteMemoBtn);
+            // ul에 li 추가 append는 뒤에, prepend는 앞에
+            display.prepend(memo);
+
+            // 삭제 
+            deleteMemoBtn.addEventListener('click', (event) => {
+                // li 요소 삭제
+                memo.remove();
+                // .filter() 현재 클릭한 버튼을 소유하고 있는 메모를 제외한 나머지를
+                allMemo = allMemo.filter((memo) => {
+                    return memo.code != item.code
+                })
+                // allMemo 배열에 재 할당한 후 로컬 스토리지에 덮어 씌움
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+            })
+        }
+    }
+</script>
 </body>
+
 </html>
